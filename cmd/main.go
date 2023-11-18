@@ -31,7 +31,14 @@ func main() {
 	idx, maxHits := findMaxElementInArray(hits)
 	decryptedText := rot(text, alphabet, idx)
 	decryptedShfit := len(alphabet)-idx
-	fmt.Printf("Entschlüsselter Text:\n%s\nDer Text wurde um %d Stellen rotiert. Es gab %d Treffer in der Wortliste.\n", decryptedText, decryptedShfit, maxHits)
+	if decryptedShfit != len(alphabet){
+		fmt.Printf("Entschlüsselter Text:\n%s\nDer Text wurde um %d Stellen rotiert. Es gab %d Treffer in der Wortliste.\n", decryptedText, decryptedShfit, maxHits)
+	} else {
+		fmt.Println("Der Text wurde 0 mal rotiert.\nUm wie viel möchtest du den Text rotierten")
+   		var i int
+ 		fmt.Scanln(&i)
+		fmt.Println(rot(decryptedText, alphabet, i))
+	}
 }
 
 var alphabet = []string{"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"}
